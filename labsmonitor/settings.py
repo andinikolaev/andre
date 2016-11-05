@@ -36,6 +36,8 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 
+LOGIN_REDIRECT_URL = '/courses/'
+
 # Application definition
 
 INSTALLED_APPS = [

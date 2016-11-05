@@ -16,6 +16,8 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 from labsapp import views
+from django.contrib.auth import views as auth_views
+
 from django.contrib.auth.views import login, logout
 
 urlpatterns = [
@@ -23,6 +25,7 @@ urlpatterns = [
     url(r'^courses/', include('courses.urls')),
     url(r'^$', views.index, name='index'),
     url(r'^labworks/', include('labworks.urls')),
-    url(r'^account/login/$', login),
-    url(r'^account/logout/$', logout),
+    # url(r'^login/$', auth_views.login, {'template_auth': 'login.html'}, name='login'),
+    url(r'^login/$', auth_views.login, name='login'),
+    url(r'^logout/$', auth_views.logout, name='logout'),
 ]
