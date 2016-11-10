@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required, user_passes_test
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404
 from django.template import RequestContext
@@ -10,7 +11,13 @@ from django.shortcuts import redirect
 
 
 
+def admin_check(user):
+    if user.groups.filter(name__in=['Students']) or user.is_superuser:
+        return True
+    else:
+        return False
 
+@user_passes_test(admin_check)
 def create(request):
     if request.method == "POST":
         form = LabForm(request.POST or None, request.FILES or None)

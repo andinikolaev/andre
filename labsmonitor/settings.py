@@ -37,6 +37,7 @@ ALLOWED_HOSTS = []
 
 
 LOGIN_REDIRECT_URL = '/courses/'
+LOGIN_URL = '/login/'
 
 # Application definition
 
@@ -47,6 +48,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_extensions',
     'labsapp',
     'courses',
     'tasks',

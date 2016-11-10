@@ -9,7 +9,11 @@
                 Name: {{ task.name }}
                 Text: {{ task.text }}
                 Points: {{ task.points }}
-                <a href="http://127.0.0.1:8000/labworks/create"> Добавить ответ</a>
+                {% if perms.labworks.change_lab %}
+                <a href="http://127.0.0.1:8000/labworks/create">
+                    Добавить ответ
+                </a>
+                {% endif %}
             </li>
         {% endfor %}
     </ol>
